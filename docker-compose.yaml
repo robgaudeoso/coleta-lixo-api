@@ -1,34 +1,34 @@
-version: '3.8'
+version: "3.8"
 
 services:
-  db:
-    container_name: oracle
-    image: "oracle"
-    ports:
-      - "1521:1521"
-    environment:
-      - ORACLE_PWD=240596
+    db:
+        container_name: oracle
+        image: "oracle"
+        ports:
+            - "1521:1521"
+        environment:
+            - ORACLE_PWD=240596
 
-  api:
-    build: .
-    ports:
-      - "8080:8080"
-    environment:
-      - PROFILE=dev
-      - DATABASE_URL=jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
-      - DATABASE_USER=RM550125
-      - DATABASE_PWD=240596
-      - SECURITY_USER=roberto
-      - SECURITY_PWD=123456
+    api:
+        build: .
+        ports:
+            - "8080:8080"
+        environment:
+            - PROFILE=dev
+            - DATABASE_URL=jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
+            - DATABASE_USER=RM550125
+            - DATABASE_PWD=240596
+            - SECURITY_USER=roberto
+            - SECURITY_PWD=123456
 
-  api-prd:
-    build: .
-    ports:
-      - "8080:8080"
-    environment:
-      - PROFILE=prd
-      - DATABASE_URL=jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
-      - DATABASE_USER=RM550125
-      - DATABASE_PWD=240596
-      - SECURITY_USER=roberto
-      - SECURITY_PWD=123456
+    api-prd:
+        build: .
+        ports:
+            - "8080:8080"
+        environment:
+            - PROFILE=prd
+            - DATABASE_URL=jdbc:oracle:thin:@oracle.fiap.com.br:1521:ORCL
+            - DATABASE_USER=RM550125
+            - DATABASE_PWD=240596
+            - SECURITY_USER=roberto
+            - SECURITY_PWD=123456
